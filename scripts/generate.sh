@@ -4,6 +4,24 @@ echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
 echo "RUN apt-get update"
 
+if [ $CLANG = "true" ] ; then
+    echo "RUN apt-get install -y clang && \
+    clang -v"
+fi
+
+if [ $GCC = "true" ] ; then
+    echo "RUN apt-get install -y gcc && \
+    gcc -v"
+fi
+
+if [ ! -e $CMAKE_VERSION_NUM ] ; then
+    CMAKE_STR = "$(awk -F'.' '{ print $1"."$2 }' <<< ${CMAKE_VERSION_NUM}.0)"
+    echo "RUN wget https://github.com/Kitware/CMake/releases/download/${CMAKE_STR}/cmake-${CMAKE_STR}-Linux-x86_64.sh && \
+    chmod u+x cmake-${CMAKE_STR}-Linux-x86_64.sh && \
+    ./cmake-${CMAKE_STR}-Linux-x86_64.sh --skip-licence && \
+    cmake --version"
+fi
+
 if [ ! -e $RUBY_VERSION_NUM ] ; then
     echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
     tar -xzvf ruby-$RUBY_VERSION_NUM.tar.gz && \
