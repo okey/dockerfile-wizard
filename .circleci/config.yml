@@ -37,6 +37,8 @@ image_config: &image_config
 
   CMAKE_VERSION_NUM: "3.10"
 
+  VALGRIND: true
+
 version: 2
 jobs:
   build:

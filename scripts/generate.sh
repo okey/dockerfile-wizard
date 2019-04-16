@@ -4,6 +4,10 @@ echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
 echo "RUN apt-get update"
 
+if [ $VALGRIND = "true" ] ; then
+    echo "RUN apt-get install -y valgrind && valgrind --version"
+fi
+
 if [ $CLANG = "true" ] ; then
     echo "RUN apt-get install -y clang-7 && \
     ln -s /usr/bin/clang-7 /usr/bin/clang && \
