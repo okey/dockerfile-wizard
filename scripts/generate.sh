@@ -5,7 +5,7 @@ echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 echo "RUN apt-get update"
 
 if [ $CLANG = "true" ] ; then
-    echo "RUN apt-get install -y clang && \
+    echo "RUN apt-get install -y clang-6.0 && \
     clang -v"
 fi
 
