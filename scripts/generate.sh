@@ -6,6 +6,7 @@ echo "RUN apt-get update"
 
 if [ $CLANG = "true" ] ; then
     echo "RUN apt-get install -y clang-6.0 && \
+    ln -s /usr/bin/clang-6.0 /usr/bin/clang && \
     clang -v"
 fi
 
