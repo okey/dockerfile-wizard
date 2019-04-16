@@ -35,7 +35,7 @@ image_config: &image_config
 
   CLANG: true
 
-  CMAKE_VERSION_NUM: 3.10
+  CMAKE_VERSION_NUM: "3.10"
 
 version: 2
 jobs:
