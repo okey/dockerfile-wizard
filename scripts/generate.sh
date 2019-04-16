@@ -16,7 +16,7 @@ if [ $GCC = "true" ] ; then
 fi
 
 if [ ! -e $CMAKE_VERSION_NUM ] ; then
-    CMAKE_STR="$(awk -F'.' '{ print $1"."$2 }' <<< ${CMAKE_VERSION_NUM}.0)"
+    CMAKE_STR="$(awk -F'.' '{ print $1"."$2"."$3 }' <<< ${CMAKE_VERSION_NUM}.0)"
     echo "RUN wget https://github.com/Kitware/CMake/releases/download/${CMAKE_STR}/cmake-${CMAKE_STR}-Linux-x86_64.sh && \
     chmod u+x cmake-${CMAKE_STR}-Linux-x86_64.sh && \
     ./cmake-${CMAKE_STR}-Linux-x86_64.sh --skip-licence && \
