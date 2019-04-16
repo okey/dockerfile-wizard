@@ -11,8 +11,7 @@ if [ $CLANG = "true" ] ; then
 fi
 
 if [ $GCC = "true" ] ; then
-    echo "RUN apt-get install -y gcc && \
-    gcc -v"
+    echo "RUN gcc -v"
 fi
 
 if [ ! -e $CMAKE_VERSION_NUM ] ; then
