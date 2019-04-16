@@ -62,9 +62,9 @@ jobs:
 
   test_image:
     docker:
-      environment:
-        <<: *image_config
       - image: $DOCKER_USERNAME/circleci-c-munit:c-munit
+        environment:
+          <<: *image_config
 
     steps:
       - checkout
