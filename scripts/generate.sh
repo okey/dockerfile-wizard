@@ -29,6 +29,19 @@ if [ ! -e $CMAKE_VERSION_NUM ] ; then
     cmake --version"
 fi
 
+if [ ! -e $GTEST_VERSION_NUM ] ; then
+    GTEST_STR="$(awk -F'.' '{ print $1"."$2"."$3 }' <<< ${GTEST_VERSION_NUM}.0)"
+    echo "RUN wget https://github.com/google/googletest/archive/release-${GTEST_STR}.tar.gz && \
+    tar -xzvf release-${GTEST_STR}.tar.gz && \
+    cd release-${GTEST_STR} && \
+    mkdir build && \
+    cd build && \
+    cmake ../ && \
+    make -j6 gtest && \
+    make install && \
+    pkg-config gtest --modversion"
+fi
+
 if [ ! -e $RUBY_VERSION_NUM ] ; then
     echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
     tar -xzvf ruby-$RUBY_VERSION_NUM.tar.gz && \

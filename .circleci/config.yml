@@ -39,6 +39,8 @@ image_config: &image_config
 
   VALGRIND: true
 
+  GTEST_VERSION_NUM: "1.8.1"
+
 version: 2
 jobs:
   build:
