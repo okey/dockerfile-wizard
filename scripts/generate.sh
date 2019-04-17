@@ -33,7 +33,7 @@ if [ ! -e $GTEST_VERSION_NUM ] ; then
     GTEST_STR="$(awk -F'.' '{ print $1"."$2"."$3 }' <<< ${GTEST_VERSION_NUM}.0)"
     echo "RUN wget https://github.com/google/googletest/archive/release-${GTEST_STR}.tar.gz && \
     tar -xzvf release-${GTEST_STR}.tar.gz && \
-    cd release-${GTEST_STR} && \
+    cd googletest-release-${GTEST_STR} && \
     mkdir build && \
     cd build && \
     cmake ../ && \
