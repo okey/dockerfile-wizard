@@ -11,11 +11,14 @@ fi
 if [ $CLANG = "true" ] ; then
     echo "RUN apt-get install -y clang-7 && \
     ln -s /usr/bin/clang-7 /usr/bin/clang && \
-    clang -v"
+    ln -s /usr/bin/clang++-7 /usr/bin/clang++ && \
+    clang -v && \
+    clang++ -v"
 fi
 
 if [ $GCC = "true" ] ; then
-    echo "RUN gcc -v"
+    echo "RUN gcc -v && \
+    g++ -v"
 fi
 
 if [ ! -e $CMAKE_VERSION_NUM ] ; then
