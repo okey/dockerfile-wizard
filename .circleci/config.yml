@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: circleci
 
-  IMAGE_TAG: c
+  IMAGE_TAG: cxx
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -62,7 +62,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/circleci:c
+      - image: $DOCKER_USERNAME/circleci:cxx
         environment:
           <<: *image_config
 
