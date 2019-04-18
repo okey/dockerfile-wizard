@@ -73,6 +73,11 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
     make install"
 fi
 
+if [ $NETCDF = "true" ] ; then
+    echo "RUN wget apt-get install libnetcdf-dev && \
+    nc-config --version"
+fi
+
 # if [ ! -e $PHP_VERSION_NUM ] ; then
 #     wget "http://php.net/distributions/php-${PHP_VERSION_NUM}.tar.xz"
 # fi

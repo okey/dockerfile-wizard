@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: circleci
 
-  IMAGE_TAG: cxx
+  IMAGE_TAG: netcdf
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -41,6 +41,8 @@ image_config: &image_config
 
   GTEST_VERSION_NUM: "1.8.1"
 
+  NETCDF: true
+
 version: 2
 jobs:
   build:
@@ -64,7 +66,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/circleci:cxx
+      - image: $DOCKER_USERNAME/circleci:netcdf
         environment:
           <<: *image_config
 
