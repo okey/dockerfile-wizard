@@ -74,7 +74,7 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
 fi
 
 if [ $NETCDF = "true" ] ; then
-    echo "RUN apt-get install libnetcdf-dev && \
+    echo "RUN apt-get install -y libnetcdf-dev && \
     nc-config --version"
 fi
 
