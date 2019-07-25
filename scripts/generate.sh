@@ -9,9 +9,9 @@ if [ $VALGRIND = "true" ] ; then
 fi
 
 if [ $CLANG = "true" ] ; then
-    echo "RUN apt-get install -y clang-7 && \
-    ln -s /usr/bin/clang-7 /usr/bin/clang && \
-    ln -s /usr/bin/clang++-7 /usr/bin/clang++ && \
+    echo "RUN apt-get install -y clang-8 && \
+    ln -s /usr/bin/clang-8 /usr/bin/clang && \
+    ln -s /usr/bin/clang++-8 /usr/bin/clang++ && \
     clang -v && \
     clang++ -v"
 fi
