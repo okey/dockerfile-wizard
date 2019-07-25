@@ -13,7 +13,7 @@ image_config: &image_config
   # make sure you also add the values of your IMAGE_NAME & IMAGE_TAG variables
   # to the `test_image` job (line 55)
 
-  LINUX_VERSION: ubuntu:19.04
+  LINUX_VERSION: UBUNTU_DISCO
 
   # RUBY_VERSION_NUM: # pick a version from https://cache.ruby-lang.org/pub/ruby
 
