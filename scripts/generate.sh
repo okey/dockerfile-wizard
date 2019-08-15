@@ -75,7 +75,7 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
 fi
 
 if [ $NETCDF = "true" ] || [ $HDF5 = "true" ]; then
-    echo "RUN wget https://www.hdfgroup.org/package/hdf5-1-10-5-tar-bz2/?wpdmdl=13570&refresh=5d54c451bf72b1565836369 && \
+    echo "RUN wget https://www.hdfgroup.org/package/hdf5-1-10-5-tar-bz2/?wpdmdl=13570 -O hdf5-1.10.5.tar.bz2 && \
     tar -xjvf hdf5-1.10.5.tar.bz2 && \
     cd hdf5-1.10.5 && \
     ./configure --prefix=/usr/local --enable-using-memchecker --enable-build-mode=production --enable-optimization=high && \
