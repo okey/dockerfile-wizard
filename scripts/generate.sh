@@ -81,7 +81,7 @@ if [ $NETCDF = "true" ] || [ $HDF5 = "true" ]; then
     ./configure --prefix=/usr/local --enable-using-memchecker --enable-build-mode=production --enable-optimization=high && \
     make -j6 && \
     make install && \
-    h5dump --version"
+    cd / && ld -tl hdf5"
 fi
 
 if [ $NETCDF = "true" ]; then
