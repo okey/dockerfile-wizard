@@ -41,6 +41,8 @@ image_config: &image_config
 
   GTEST_VERSION_NUM: "1.8.1"
 
+  HDF5: true
+
   NETCDF: true
 
 version: 2

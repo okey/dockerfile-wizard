@@ -74,8 +74,23 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
     make install"
 fi
 
-if [ $NETCDF = "true" ] ; then
-    echo "RUN apt-get install -y libnetcdf-dev && \
+if [ $NETCDF = "true" ] || [ $HDF5 = "true" ]; then
+    echo "RUN wget https://www.hdfgroup.org/package/hdf5-1-10-5-tar-bz2/?wpdmdl=13570&refresh=5d54c451bf72b1565836369 && \
+    tar -xjvf hdf5-1.10.5.tar.bz2 && \
+    cd hdf5-1.10.5 && \
+    ./configure --prefix=/usr/local --enable-using-memchecker --enable-build-mode=production --enable-optimization=high && \
+    make -j6 && \
+    make install && \
+    h5dump --version"
+fi
+
+if [ $NETCDF = "true" ]; then
+    echo "RUN wget https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.0.tar.gz && \
+    tar -xzvf netcdf-c-4.7.0.tar.gz && \
+    cd netcdf-c-4.7.0 && \
+    ./configure --prefix=/usr/local && \
+    make -j6 && \
+    make install && \
     nc-config --version"
 fi
 
